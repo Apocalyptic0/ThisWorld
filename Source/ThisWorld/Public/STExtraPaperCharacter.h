@@ -7,6 +7,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "ElementSkillBase.h"
 #include "STExtraPaperCharacter.generated.h"
 
 /**
@@ -26,9 +27,20 @@ protected:
 
 	// ÒÆ¶¯º¯Êý
 	virtual void Jump() override;
-	void Crouch();
+	//void Crouch();
 
-	bool CanJump();
-	bool CanCrouch();
+	//bool CanJump();
+	//bool CanCrouch();
+
+	UFUNCTION(BlueprintCallable, Category = "Skills")
+	bool CanUseSkill(AElementSkillBase* Skill);
+
+	UFUNCTION(BlueprintCallable, Category = "Skills")
+	void UseSkill(AElementSkillBase* Skill);
+
+protected:
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Skills")
+	TMap<FName, TSubclassOf<AElementSkillBase>> OwningSkills;
 
 };

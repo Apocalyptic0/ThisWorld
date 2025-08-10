@@ -22,6 +22,8 @@ void ASTExtraPaperCharacter::BeginPlay()
 {
     Super::BeginPlay();
 
+
+
 }
 
 void ASTExtraPaperCharacter::Jump()
@@ -29,19 +31,29 @@ void ASTExtraPaperCharacter::Jump()
     Super::Jump();
 }
 
-void ASTExtraPaperCharacter::Crouch()
-{
-    // 蹲下 + 改变碰撞体
-}
-
-bool ASTExtraPaperCharacter::CanJump()
-{
-    bool IsFalling = GetCharacterMovement()->IsFalling();
-    return !IsFalling;
-}
-
-bool ASTExtraPaperCharacter::CanCrouch()
+bool ASTExtraPaperCharacter::CanUseSkill(AElementSkillBase* Skill)
 {
     return true;
 }
+
+void ASTExtraPaperCharacter::UseSkill(AElementSkillBase* Skill)
+{
+    Skill->ActivateSkill(this);
+}
+
+//void ASTExtraPaperCharacter::Crouch()
+//{
+//    // 蹲下 + 改变碰撞体
+//}
+//
+//bool ASTExtraPaperCharacter::CanJump()
+//{
+//    bool IsFalling = GetCharacterMovement()->IsFalling();
+//    return !IsFalling;
+//}
+//
+//bool ASTExtraPaperCharacter::CanCrouch()
+//{
+//    return true;
+//}
 

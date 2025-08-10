@@ -5,8 +5,8 @@
 
 APaperPlayerControllerBase::APaperPlayerControllerBase()
 {
-    //bShowMouseCursor = true;
-    //DefaultMouseCursor = EMouseCursor::Default;
+    bShowMouseCursor = true;
+    DefaultMouseCursor = EMouseCursor::Default;
 }
 
 void APaperPlayerControllerBase::BeginPlay()
