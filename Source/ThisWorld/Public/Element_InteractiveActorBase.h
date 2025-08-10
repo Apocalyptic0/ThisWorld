@@ -30,7 +30,7 @@ protected:
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void ShowMainInteractiveElement();
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	EMyElementType MainInteractiveElement;
 	
 };
