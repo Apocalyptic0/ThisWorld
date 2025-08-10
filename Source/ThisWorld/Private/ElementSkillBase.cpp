@@ -21,32 +21,39 @@ void AElementSkillBase::BeginPlay()
 void AElementSkillBase::ActivateSkill_Implementation(AActor* ElementInstigator)
 {
     UWorld* World = ElementInstigator->GetWorld();
-    if (!World) return;
-
-    if (AElementPaperActorBase* SpawnElement = SpawnSpriteActor(World, FVector(0, 0, 0), FRotator(0, 0, 0)))
+    if (!World)
     {
-        SpawnElement->ElementInstigator = ElementInstigator;
+        return;
     }
+
+    SpawnSpriteActor(World, FVector(0, 0, 0), FRotator(0, 0, 0), ElementInstigator);
 }
 
 void AElementSkillBase::InitializeSkill()
 {
 }
 
-AElementPaperActorBase* AElementSkillBase::SpawnSpriteActor(UWorld* World, FVector Location, FRotator Rotation)
+AElementPaperActorBase* AElementSkillBase::SpawnSpriteActor(UObject* WorldContextObject, FVector Location, FRotator Rotation, AActor* ElementInstigator)
 {
-    if (!World)
+    if (UWorld* World = WorldContextObject->GetWorld())
     {
-        return nullptr;
-    }
-    // 生成 PaperSpriteActor
-    AElementPaperActorBase* SpawnElement = World->SpawnActor<AElementPaperActorBase>(
-        ElementActor,
-        Location,
-        Rotation
-    );
+        // 生成 PaperSpriteActor
+        AElementPaperActorBase* SpawnElement = World->SpawnActor<AElementPaperActorBase>(
+            ElementActor,
+            Location,
+            Rotation
+        );
 
-    return SpawnElement;
+        if (!SpawnElement)
+        {
+            return nullptr;
+        }
+        SpawnElement->ElementInstigator = ElementInstigator;
+
+        return SpawnElement;
+    }
+    
+    return nullptr;
 }
 
 

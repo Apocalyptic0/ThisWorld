@@ -36,12 +36,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool IsCollisionElement();
 
-	UPROPERTY(BlueprintReadOnly, Category = "ElementProperty")
+	UPROPERTY(BlueprintReadWrite, Category = "ElementProperty")
 	AActor* ElementInstigator;
 
 protected:
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (Bitmask, BitmaskEnum = "/Script/ThisWorld.EElementType"), Category = "ElementProperty")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (Bitmask, BitmaskEnum = "/Script/ThisWorld.EMyElementType"), Category = "ElementProperty")
 	uint8 MyElements;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "ElementProperty")

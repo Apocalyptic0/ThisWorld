@@ -21,13 +21,15 @@ class THISWORLD_API AElement_InteractiveActorBase : public APaperSpriteActor
 
 protected:
 
-	UFUNCTION(BlueprintCallable)
-	virtual void OnAbsorbingElement(AElementPaperActorBase* ElementActor);
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OnAbsorbingElement(AElementPaperActorBase* ElementActor);
+	virtual void OnAbsorbingElement_Implementation(AElementPaperActorBase* ElementActor);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	AElementPaperActorBase* GenerateElement(AElementPaperActorBase* ElementActor);
+	virtual AElementPaperActorBase* GenerateElement_Implementation(AElementPaperActorBase* ElementActor);
 
 	UFUNCTION(BlueprintCallable)
-	virtual AElementPaperActorBase* GenerateElement();
-
-	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void ShowMainInteractiveElement();
 
 	UPROPERTY(EditAnywhere)

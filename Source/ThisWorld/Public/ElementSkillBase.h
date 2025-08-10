@@ -32,7 +32,7 @@ protected:
     virtual void InitializeSkill();
 
     UFUNCTION(BlueprintCallable, Category = "ElementSkill")
-    AElementPaperActorBase* SpawnSpriteActor(UWorld* World, FVector Location, FRotator Rotation);
+    AElementPaperActorBase* SpawnSpriteActor(UObject* WorldContextObject, FVector Location, FRotator Rotation, AActor* ElementInstigator);
 
 protected:
 

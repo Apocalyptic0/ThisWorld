@@ -5,7 +5,7 @@
 
 bool AElementPaperActorBase::HasElements(uint8 Elements)
 {
-	return (MyElements | Elements) != MyElements;
+	return (MyElements | Elements) == MyElements;
 }
 
 bool AElementPaperActorBase::IsCollisionElement()
