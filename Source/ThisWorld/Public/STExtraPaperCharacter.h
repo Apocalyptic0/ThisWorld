@@ -43,4 +43,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Skills")
 	TMap<FName, TSubclassOf<AElementSkillBase>> OwningSkills;
 
+public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Move")
+	bool bCanClimb;
 };
